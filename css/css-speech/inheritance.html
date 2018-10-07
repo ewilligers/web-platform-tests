@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Inheritance of CSS Speech properties</title>
+<link rel="help" href="https://drafts.csswg.org/css-speech-1/#property-index">
+<meta name="assert" content="Properties inherit according to the spec.">
+<meta name="assert" content="Properties have initial values according to the spec.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/inheritance-testcommon.js"></script>
+</head>
+<body>
+<div id="container">
+  <div id="target"></div>
+</div>
+<style>
+  #container {
+    voice-family: child;
+  }
+</style>
+<script>
+const initialVoiceFamily = getComputedStyle(container).voiceFamily;
+assert_not_inherited('cue-after', 'none', 'url("https://example.com/")');
+assert_not_inherited('cue-before', 'none', 'url("https://example.com/")');
+assert_not_inherited('pause-after', 'none', 'strong');
+assert_not_inherited('pause-before', 'none', 'strong');
+assert_not_inherited('rest-after', 'none', 'strong');
+assert_not_inherited('rest-before', 'none', 'strong');
+assert_inherited('speak', 'auto', 'never');
+assert_inherited('speak-as', 'normal', 'digits');
+assert_inherited('voice-balance', 'center', 'left');
+assert_not_inherited('voice-duration', 'auto', '10s');
+assert_inherited('voice-family', initialVoiceFamily, 'child male 7, young female 2, old neutral 9');
+assert_inherited('voice-pitch', 'medium', 'low');
+assert_inherited('voice-range', 'medium', 'low');
+assert_inherited('voice-rate', 'normal', 'slow');
+assert_inherited('voice-stress', 'normal', 'reduced');
+assert_inherited('voice-volume', 'medium', 'soft');
+</script>
+</body>
+</html>
