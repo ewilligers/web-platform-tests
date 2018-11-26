@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Regions Module Level 1: parsing region-fragment with invalid values</title>
+<link rel="help" href="https://drafts.csswg.org/css-regions/#propdef-region-fragment">
+<meta name="assert" content="region-fragment supports only the grammar 'auto | break'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_invalid_value("region-fragment", "0");
+test_invalid_value("region-fragment", '"string"');
+test_invalid_value("region-fragment", "none");
+test_invalid_value("region-fragment", "COLUMN");
+test_invalid_value("region-fragment", "auto break");
+</script>
+</body>
+</html>

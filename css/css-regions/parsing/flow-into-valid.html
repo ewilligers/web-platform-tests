@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Regions Module Level 1: parsing flow-into with valid values</title>
+<link rel="help" href="https://drafts.csswg.org/css-regions/#propdef-flow-into">
+<meta name="assert" content="flow-into supports the full grammar 'none | <ident> [element|content]?'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_valid_value("flow-into", "none");
+
+// <ident> [element|content]?
+test_valid_value("flow-into", "COLUMN");
+test_valid_value("flow-into", "COLUMN element");
+test_valid_value("flow-into", "COLUMN content");
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Regions Module Level 1: parsing flow-from with valid values</title>
+<link rel="help" href="https://drafts.csswg.org/css-regions/#propdef-flow-from">
+<meta name="assert" content="flow-from supports the full grammar '<ident> | none'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_valid_value("flow-from", "none");
+test_valid_value("flow-from", "COLUMN");
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Regions Module Level 1: parsing region-fragment with valid values</title>
+<link rel="help" href="https://drafts.csswg.org/css-regions/#propdef-region-fragment">
+<meta name="assert" content="region-fragment supports the full grammar 'auto | break'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_valid_value("region-fragment", "auto");
+test_valid_value("region-fragment", "break");
+</script>
+</body>
+</html>
