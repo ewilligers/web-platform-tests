@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: mask-border sets longhands</title>
+<link rel="help" href="https://drafts.fxtf.org/css-masking-1/#the-mask-border">
+<meta name="assert" content="mask-border supports the full grammar '<'mask-border-source'> || <'mask-border-slice'> [ / <'mask-border-width'>? [ / <'mask-border-outset'> ]? ]? || <'mask-border-repeat'> || <'mask-border-mode'>'.">
+<meta name="assert" content="mask-border sets mask-border-source, mask-border-slice, mask-border-width, mask-border-outset and mask-border-repeat.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/shorthand-testcommon.js"></script>
+</head>
+<body>
+<div id="target" style="mask-border-mode: luminance"></div>
+<script>
+test_shorthand_value('mask-border', 'none 0', {
+  'mask-border-source': 'none', // none | <image>
+  'mask-border-slice': '0', // <number-percentage>{1,4} fill?
+  'mask-border-width': 'auto', // [ <length-percentage> | <number> | auto ]{1,4}
+
+  'mask-border-outset': '0', // [ <length> | <number> ]{1,4}
+  'mask-border-repeat': 'stretch', // [ stretch | repeat | round | space ]{1,2}
+  'mask-border-mode': 'luminance'
+});
+
+test_shorthand_value('mask-border',
+                     'alpha' +
+                     ' repeat stretch' +
+                     ' 5 6% 7 8% fill / auto 2 3px 4% / 9px 10 11px 12' +
+                     ' radial-gradient(at 20% 30px, blue, red)', {
+  'mask-border-source': 'radial-gradient(at 20% 30px, blue, red)', // none | <image>
+  'mask-border-slice': '5 6% 7 8% fill', // <number-percentage>{1,4} fill?
+  'mask-border-width': 'auto 2 3px 4%', // [ <length-percentage> | <number> | auto ]{1,4}
+
+  'mask-border-outset': '9px 10 11px 12', // [ <length> | <number> ]{1,4}
+  'mask-border-repeat': 'repeat stretch', // [ stretch | repeat | round | space ]{1,2}
+  'mask-border-mode': 'alpha'
+});
+
+test_shorthand_value('mask-border',
+                     'radial-gradient(at 20% 30px, red, blue)' +
+                     ' 1 2 3 4 / 5px 6px 7px 8px / 9px 10px 11px 12px' +
+                     ' round space' +
+                     ' luminance', {
+  'mask-border-source': 'radial-gradient(at 20% 30px, red, blue)', // none | <image>
+  'mask-border-slice': '1 2 3 4', // <number-percentage>{1,4} fill?
+  'mask-border-width': '5px 6px 7px 8px', // [ <length-percentage> | <number> | auto ]{1,4}
+
+  'mask-border-outset': '9px 10px 11px 12px', // [ <length> | <number> ]{1,4}
+  'mask-border-repeat': 'round space', // [ stretch | repeat | round | space ]{1,2}
+  'mask-border-mode': 'luminance'
+});
+</script>
+</body>
+</html>
