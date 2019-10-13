@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Overflow: overflow sets longhands</title>
+<link rel="help" href="https://drafts.csswg.org/css-overflow/#propdef-overflow">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/shorthand-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_shorthand_value('overflow', 'visible', {
+  'overflow-x': 'visible',
+  'overflow-y': 'visible'
+});
+
+test_shorthand_value('overflow', 'auto scroll', {
+  'overflow-x': 'auto',
+  'overflow-y': 'scroll'
+});
+</script>
+</body>
+</html>
